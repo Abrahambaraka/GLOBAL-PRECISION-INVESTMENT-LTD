@@ -76,37 +76,28 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   type="button"
-                  onClick={() => {
-                    onSectorSelect('mining');
-                    onNavigate('sectors');
-                  }}
+                  onClick={() => onSectorSelect('mining')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  {currentLang === 'fr' ? '01. Mines & Métaux Stratégiques' : '01. Modern Mining & Metals'}
+                  {currentLang === 'fr' ? '01. Mines & Métaux Stratégiques' : '01. Modern Mining & Strategic Metals'}
                 </button>
               </li>
               <li>
                 <button
                   type="button"
-                  onClick={() => {
-                    onSectorSelect('agriculture');
-                    onNavigate('sectors');
-                  }}
+                  onClick={() => onSectorSelect('agriculture')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  {currentLang === 'fr' ? '02. Agriculture Durable & Biosphères' : '02. Sustainable Agriculture'}
+                  {currentLang === 'fr' ? '02. Agriculture Durable & Agro-Fourniture' : '02. Sustainable Agriculture & Agro-Supply'}
                 </button>
               </li>
               <li>
                 <button
                   type="button"
-                  onClick={() => {
-                    onSectorSelect('supply');
-                    onNavigate('sectors');
-                  }}
+                  onClick={() => onSectorSelect('supply')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  {currentLang === 'fr' ? '03. Fourniture Industrielle & Logistique' : '03. Industrial Supply & Logistics'}
+                  {currentLang === 'fr' ? '03. Fourniture Industrielle & Commerce de Gros' : '03. Industrial Supply & Wholesale Trade'}
                 </button>
               </li>
             </ul>

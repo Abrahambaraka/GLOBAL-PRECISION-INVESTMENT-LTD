@@ -145,7 +145,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder={t.form.namePlaceholder}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full h-[42px] px-3.5 text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
+                      className="w-full h-[44px] sm:h-[42px] px-3.5 text-base sm:text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
                     />
                   </div>
 
@@ -160,7 +160,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder={t.form.emailPlaceholder}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full h-[42px] px-3.5 text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
+                      className="w-full h-[44px] sm:h-[42px] px-3.5 text-base sm:text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
                     />
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder={t.form.companyPlaceholder}
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      className="w-full h-[42px] px-3.5 text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
+                      className="w-full h-[44px] sm:h-[42px] px-3.5 text-base sm:text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
                     />
                   </div>
 
@@ -189,7 +189,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     <select
                       value={sectorInterest}
                       onChange={(e) => setSectorInterest(e.target.value)}
-                      className="w-full h-[42px] px-3 text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 font-medium focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 cursor-pointer"
+                      className="w-full h-[44px] sm:h-[42px] px-3 text-base sm:text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 font-medium focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 cursor-pointer"
                     >
                       <option value="all">{t.form.sectorOptions.all}</option>
                       <option value="mining">{t.form.sectorOptions.mining}</option>
@@ -210,7 +210,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     placeholder={t.form.messagePlaceholder}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full p-3.5 text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
+                    className="w-full p-3.5 text-base sm:text-xs bg-white border border-[#cbd5e1] rounded-[0.25rem] text-slate-900 focus:outline-hidden focus:border-[#0f2c59] focus:ring-3 focus:ring-[#0f2c59]/12 transition-all"
                   />
                 </div>
 
