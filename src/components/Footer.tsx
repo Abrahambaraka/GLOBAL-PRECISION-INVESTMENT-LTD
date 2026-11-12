@@ -113,55 +113,61 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Column 3: The 3 Core Dedicated Sectors (lg:col-span-3) */}
+          {/* Column 3: ZRA Taxpayer Registration & Compliance (from official certificate) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-white block pb-1 border-b border-white/10">
-              {currentLang === 'fr' ? 'Pages des 3 Secteurs' : 'Core Sectors Pages'}
-            </span>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onSelectSector('mining')}
-                  className="hover:text-[#f9a825] transition-colors cursor-pointer text-left block"
-                >
-                  <span className="font-semibold text-slate-200 block">
-                    01. {currentLang === 'fr' ? 'Mines & Métaux Stratégiques' : 'Modern Mining & Critical Metals'}
+            <div className="flex items-center gap-1.5 pb-1 border-b border-white/10">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white">
+                {currentLang === 'fr' ? 'Enregistrement Fiscal ZRA' : 'ZRA Tax Registration'}
+              </span>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-lg p-3.5 space-y-2.5 text-xs card-hover-lift">
+              <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#f9a825]">
+                  Zambia Revenue Authority
+                </span>
+                <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                  ACTIVE & COMPLIANT
+                </span>
+              </div>
+
+              <div className="space-y-1.5 text-[11px] font-mono">
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400">TPIN :</span>
+                  <span className="font-bold text-[#f9a825] bg-black/40 px-2 py-0.5 rounded border border-white/10">
+                    2003677721
                   </span>
-                  <span className="text-[11px] text-slate-400">
-                    Copperbelt · Logistique & Pièces lourdes
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400">Identity / NRC :</span>
+                  <span className="font-bold text-slate-200">120261020624</span>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400">Taxpayer Name :</span>
+                  <span className="font-semibold text-slate-200 text-right truncate max-w-[150px]">
+                    GLOBAL PRECISION INVESTMENT LTD
                   </span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onSelectSector('agriculture')}
-                  className="hover:text-emerald-400 transition-colors cursor-pointer text-left block"
-                >
-                  <span className="font-semibold text-slate-200 block">
-                    02. {currentLang === 'fr' ? 'Agriculture Durable & Agro-Fourniture' : 'Sustainable Agriculture & Agro-Supply'}
-                  </span>
-                  <span className="text-[11px] text-slate-400">
-                    Tracteurs, irrigation solaire, silos
-                  </span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onSelectSector('supply')}
-                  className="hover:text-[#6c95d8] transition-colors cursor-pointer text-left block"
-                >
-                  <span className="font-semibold text-slate-200 block">
-                    03. {currentLang === 'fr' ? 'Fourniture Industrielle & Gros' : 'Industrial Supply & Wholesale Trade'}
-                  </span>
-                  <span className="text-[11px] text-slate-400">
-                    ISIC 4690 · Pièces autos & quincaillerie
-                  </span>
-                </button>
-              </li>
-            </ul>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400">Jurisdiction :</span>
+                  <span className="text-slate-300">ISHTO - Copperbelt</span>
+                </div>
+
+                <div className="pt-1.5 border-t border-white/10 flex justify-between items-center text-[10px]">
+                  <span className="text-slate-400">Turnover Tax :</span>
+                  <span className="text-emerald-400 font-bold">Effective 30 Jul 2025</span>
+                </div>
+              </div>
+
+              <div className="pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400 italic">
+                <span>« My Tax · Your Tax · Our Destiny »</span>
+                <span className="font-mono not-italic text-emerald-400 text-[9px]">ZRA Verified</span>
+              </div>
+            </div>
           </div>
 
           {/* Column 4: Operational Coordinates & Physical Presence */}
