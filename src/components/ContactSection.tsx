@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Language, translations } from '../i18n/translations';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ContactSectionProps {
   currentLang: Language;
@@ -88,22 +89,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     <section id="contact" className="py-20 bg-[#f8f9ff] border-b border-slate-200">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-            <span className="w-2 h-2 rounded-[0.25rem] bg-[#f9a825]"></span>
-            <span>{t.badge}</span>
+        <ScrollReveal direction="up" delayMs={50}>
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+              <span className="w-2 h-2 rounded-[0.25rem] bg-[#f9a825]"></span>
+              <span>{t.badge}</span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold font-display text-[#0f2c59] tracking-tight mb-4">
+              {t.title}
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {t.subtitle}
+            </p>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold font-display text-[#0f2c59] tracking-tight mb-4">
-            {t.title}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            {t.subtitle}
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-white border border-[#e2e8f0] rounded-lg p-6 sm:p-8 shadow-xs">
+          <div className="lg:col-span-7">
+            <ScrollReveal direction="up" delayMs={100}>
+              <div className="bg-white border border-[#e2e8f0] rounded-lg p-6 sm:p-8 shadow-xs card-hover-lift">
             {isSubmitted ? (
               <div className="text-center py-10 space-y-5">
                 <div className="w-16 h-16 bg-emerald-50 border border-emerald-200 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
@@ -226,10 +231,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
               </form>
             )}
+              </div>
+            </ScrollReveal>
           </div>
 
-          {/* Right Column: Direct Corporate Contacts */}
-          <div className="lg:col-span-5 bg-white border border-[#e2e8f0] rounded-lg p-6 sm:p-8 shadow-xs space-y-6">
+          {/* Right Column: Direct Corporate Contacts with ScrollReveal */}
+          <div className="lg:col-span-5">
+            <ScrollReveal direction="up" delayMs={200}>
+              <div className="bg-white border border-[#e2e8f0] rounded-lg p-6 sm:p-8 shadow-xs space-y-6 card-hover-lift">
             <div className="pb-4 border-b border-slate-100 flex items-center justify-between gap-4">
               <div>
                 <h3 className="font-display font-bold text-lg text-[#0f2c59]">
@@ -382,8 +391,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   ? 'Siège opérationnel à Ndola, Zambie. Partenariats et accords bilatéraux certifiés.'
                   : 'Operational headquarters in Ndola, Zambia. Certified bilateral partnerships and concessions.'}
               </span>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
+        </div>
         </div>
       </div>
     </section>

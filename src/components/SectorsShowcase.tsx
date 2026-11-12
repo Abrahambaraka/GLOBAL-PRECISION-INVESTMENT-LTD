@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Language, translations, SectorItem } from '../i18n/translations';
+import { ScrollReveal } from './ScrollReveal';
 
 interface SectorsShowcaseProps {
   currentLang: Language;
@@ -57,99 +58,103 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
   return (
     <section id="sectors" className="py-16 sm:py-20 bg-[#f8f9ff] border-b border-slate-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
-              <span className="w-2 h-2 rounded-[0.25rem] bg-[#f9a825]"></span>
-              <span>{t.badge}</span>
+        {/* Section Header with ScrollReveal */}
+        <ScrollReveal direction="up" delayMs={50}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                <span className="w-2 h-2 rounded-[0.25rem] bg-[#f9a825]"></span>
+                <span>{t.badge}</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0f2c59] tracking-tight">
+                {t.title}
+              </h2>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0f2c59] tracking-tight">
-              {t.title}
-            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md">{t.subtitle}</p>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-md">{t.subtitle}</p>
-        </div>
+        </ScrollReveal>
 
         {/* 3 Sector Switcher Tabs with Realistic Photo Previews - Clicking opens dedicated page */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          {(['mining', 'agriculture', 'supply'] as const).map((id) => {
+          {(['mining', 'agriculture', 'supply'] as const).map((id, idx) => {
             const isSelected = selectedSectorId === id;
             const sectorData = sectors[id];
 
             return (
-              <div
-                key={id}
-                onClick={() => onOpenSectorPage(id)}
-                className={`bg-white border text-left rounded-lg overflow-hidden cursor-pointer transition-all border-t-[4px] group flex flex-col justify-between ${getBorderTopColor(
-                  id
-                )} ${
-                  isSelected
-                    ? 'shadow-lg border-[#cbd5e1] ring-2 ring-[#0f2c59]/20'
-                    : 'border-slate-200 hover:border-slate-300 hover:shadow-md'
-                }`}
-              >
-                <div>
-                  {/* Realistic Sector Photo Header in tab */}
-                  <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-100">
-                    <img
-                      src={sectorData.coverImage}
-                      alt={sectorData.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
+              <ScrollReveal key={id} direction="up" delayMs={idx * 100}>
+                <div
+                  onClick={() => onOpenSectorPage(id)}
+                  className={`bg-white border text-left rounded-lg overflow-hidden cursor-pointer transition-all duration-300 border-t-[4px] group flex flex-col justify-between card-hover-lift h-full ${getBorderTopColor(
+                    id
+                  )} ${
+                    isSelected
+                      ? 'shadow-lg border-[#cbd5e1] ring-2 ring-[#0f2c59]/20'
+                      : 'border-slate-200 hover:border-slate-300 hover:shadow-md'
+                  }`}
+                >
+                  <div>
+                    {/* Realistic Sector Photo Header in tab */}
+                    <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={sectorData.coverImage}
+                        alt={sectorData.name}
+                        className="w-full h-full object-cover transition-transform duration-600 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 group-hover:opacity-80 transition-opacity" />
 
-                    <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-[#0f2c59]/90 text-white text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-[0.25rem] backdrop-blur-xs">
-                      <Camera className="w-3 h-3 text-[#f9a825]" />
-                      <span>
-                        {id === 'mining'
-                          ? 'Mine Copperbelt'
-                          : id === 'agriculture'
-                          ? 'Agro-Mécanisation'
-                          : 'Dépôt Wholesale'}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#f9a825]">
-                        {id === 'mining'
-                          ? 'Pôle 01'
-                          : id === 'agriculture'
-                          ? 'Pôle 02'
-                          : 'Pôle 03'}
-                      </span>
-                      <span className="text-[10px] font-mono text-slate-200 bg-white/10 px-1.5 py-0.5 rounded">
-                        Zambia
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 sm:p-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="p-1.5 bg-slate-50 rounded-[0.25rem] border border-slate-100">
-                        {getSectorIcon(id)}
+                      <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-[#0f2c59]/90 text-white text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-[0.25rem] backdrop-blur-xs group-hover:scale-105 transition-transform">
+                        <Camera className="w-3 h-3 text-[#f9a825]" />
+                        <span>
+                          {id === 'mining'
+                            ? 'Mine Copperbelt'
+                            : id === 'agriculture'
+                            ? 'Agro-Mécanisation'
+                            : 'Dépôt Wholesale'}
+                        </span>
                       </div>
-                      <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] group-hover:text-[#f9a825] transition-colors truncate">
-                        {sectorData.name}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{sectorData.tagline}</p>
-                  </div>
-                </div>
 
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
-                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59] group-hover:text-[#f9a825] transition-colors">
-                    <span>{currentLang === 'fr' ? 'Accéder à la page dédiée' : 'Open Dedicated Page'}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#f9a825]">
+                          {id === 'mining'
+                            ? 'Pôle 01'
+                            : id === 'agriculture'
+                            ? 'Pôle 02'
+                            : 'Pôle 03'}
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-200 bg-white/10 px-1.5 py-0.5 rounded">
+                          Zambia
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="p-1.5 bg-slate-50 rounded-[0.25rem] border border-slate-100 group-hover:bg-[#0f2c59]/5 transition-colors">
+                          {getSectorIcon(id)}
+                        </div>
+                        <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] group-hover:text-[#f9a825] transition-colors truncate">
+                          {sectorData.name}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{sectorData.tagline}</p>
+                    </div>
+                  </div>
+
+                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
+                    <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59] group-hover:text-[#f9a825] transition-colors">
+                      <span>{currentLang === 'fr' ? 'Accéder à la page dédiée' : 'Open Dedicated Page'}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
-        {/* Main Sector Detailed Display Panel */}
-        <div className="bg-white border border-[#e2e8f0] rounded-lg p-5 sm:p-8 lg:p-10 shadow-xs">
+        {/* Main Sector Detailed Display Panel with ScrollReveal */}
+        <ScrollReveal direction="up" delayMs={100}>
+          <div className="bg-white border border-[#e2e8f0] rounded-lg p-5 sm:p-8 lg:p-10 shadow-xs">
           {/* Header Bar of the Selected Sector */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="max-w-3xl">
@@ -336,7 +341,8 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </ScrollReveal>
+    </div>
+  </section>
   );
 };

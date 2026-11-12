@@ -19,6 +19,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { Language, translations, SectorItem } from '../i18n/translations';
+import { ScrollReveal } from './ScrollReveal';
 
 interface SectorDetailPageProps {
   sectorId: 'mining' | 'agriculture' | 'supply';
@@ -403,37 +404,38 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {catalog.categories.map((cat, idx) => (
-              <div
-                key={idx}
-                className="bg-[#f8fafc] border border-slate-200 rounded-lg p-6 flex flex-col justify-between hover:border-slate-300 transition-colors"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-[0.25rem] bg-white border border-slate-200 flex items-center justify-center mb-4 shadow-2xs">
-                    {cat.icon}
+              <ScrollReveal key={idx} direction="up" delayMs={idx * 100}>
+                <div
+                  className="bg-[#f8fafc] border border-slate-200 rounded-lg p-6 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 card-hover-lift h-full"
+                >
+                  <div>
+                    <div className="w-10 h-10 rounded-[0.25rem] bg-white border border-slate-200 flex items-center justify-center mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      {cat.icon}
+                    </div>
+                    <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-4">
+                      {cat.name}
+                    </h3>
+                    <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                      {cat.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#f9a825] shrink-0 mt-1.5" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-4">
-                    {cat.name}
-                  </h3>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
-                    {cat.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#f9a825] shrink-0 mt-1.5" />
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-200">
-                  <button
-                    onClick={() => onContactSector(`${currentSector.name} - ${cat.name}`)}
-                    className="w-full py-2 px-3 text-xs font-semibold text-[#0f2c59] bg-white border border-slate-200 rounded-[0.25rem] hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <span>{currentLang === 'fr' ? 'Demander disponibilité' : 'Check Availability'}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#f9a825]" />
-                  </button>
+                  <div className="pt-6 mt-6 border-t border-slate-200">
+                    <button
+                      onClick={() => onContactSector(`${currentSector.name} - ${cat.name}`)}
+                      className="w-full py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-white border border-slate-200 rounded-[0.25rem] hover:bg-[#0f2c59] hover:text-white flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
+                    >
+                      <span>{currentLang === 'fr' ? 'Demander disponibilité' : 'Check Availability'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#f9a825]" />
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -458,46 +460,47 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {currentSector.projects.map((proj, idx) => (
-              <div
-                key={idx}
-                className="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
-                    <img
-                      src={proj.imageUrl}
-                      alt={proj.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1.5 backdrop-blur-xs">
-                        <MapPin className="w-3 h-3 text-[#f9a825]" />
-                        {proj.location}
-                      </span>
+              <ScrollReveal key={idx} direction="up" delayMs={idx * 120}>
+                <div
+                  className="bg-white border border-slate-200 rounded-lg overflow-hidden group card-hover-lift transition-all duration-300 flex flex-col justify-between h-full shadow-sm hover:shadow-xl"
+                >
+                  <div>
+                    <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+                      <img
+                        src={proj.imageUrl}
+                        alt={proj.name}
+                        className="w-full h-full object-cover img-hover-zoom transition-transform duration-600"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none group-hover:opacity-80 transition-opacity" />
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1.5 backdrop-blur-xs group-hover:scale-105 transition-transform">
+                          <MapPin className="w-3 h-3 text-[#f9a825]" />
+                          {proj.location}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-5">
+                      <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-2 group-hover:text-[#1e4d8c] transition-colors">
+                        {proj.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {proj.highlight}
+                      </p>
                     </div>
                   </div>
 
-                  <div className="p-5">
-                    <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-2 group-hover:text-[#1e4d8c] transition-colors">
-                      {proj.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {proj.highlight}
-                    </p>
+                  <div className="px-5 pb-5 pt-1">
+                    <button
+                      onClick={() => onContactSector(`${currentSector.name} - ${proj.name}`)}
+                      className="w-full py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-slate-50 hover:bg-[#0f2c59] hover:text-white rounded-[0.25rem] border border-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
+                    >
+                      <span>{currentLang === 'fr' ? 'Consulter ce pôle' : 'Inquire on this Facility'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </button>
                   </div>
                 </div>
-
-                <div className="px-5 pb-5 pt-1">
-                  <button
-                    onClick={() => onContactSector(`${currentSector.name} - ${proj.name}`)}
-                    className="w-full py-2 px-3 text-xs font-semibold text-[#0f2c59] bg-slate-50 hover:bg-[#0f2c59] hover:text-white rounded-[0.25rem] border border-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-                  >
-                    <span>{currentLang === 'fr' ? 'Consulter ce pôle' : 'Inquire on this Facility'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
