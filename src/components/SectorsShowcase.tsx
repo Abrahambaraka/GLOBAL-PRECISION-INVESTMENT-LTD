@@ -56,13 +56,13 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
   };
 
   return (
-    <section id="sectors" className="py-16 sm:py-20 bg-[#f8f9ff] border-b border-slate-200">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+    <section id="sectors" className="py-10 sm:py-20 bg-[#f8f9ff] border-b border-slate-200">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
         {/* Section Header with ScrollReveal */}
         <ScrollReveal direction="up" delayMs={50}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-6 mb-6 sm:mb-12">
             <div>
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+              <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5 sm:mb-2">
                 <span className="w-2 h-2 rounded-[0.25rem] bg-[#f9a825]"></span>
                 <span>{t.badge}</span>
               </div>
@@ -75,7 +75,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
         </ScrollReveal>
 
         {/* 3 Sector Switcher Tabs with Realistic Photo Previews - Clicking opens dedicated page */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 mb-6 sm:mb-10">
           {(['mining', 'agriculture', 'supply'] as const).map((id, idx) => {
             const isSelected = selectedSectorId === id;
             const sectorData = sectors[id];
@@ -94,7 +94,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                 >
                   <div>
                     {/* Realistic Sector Photo Header in tab */}
-                    <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-100">
+                    <div className="relative h-28 sm:h-40 w-full overflow-hidden bg-slate-100">
                       <img
                         src={sectorData.coverImage}
                         alt={sectorData.name}
@@ -102,7 +102,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 group-hover:opacity-80 transition-opacity" />
 
-                      <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-[#0f2c59]/90 text-white text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-[0.25rem] backdrop-blur-xs group-hover:scale-105 transition-transform">
+                      <div className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 flex items-center gap-1.5 bg-[#0f2c59]/90 text-white text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-[0.25rem] backdrop-blur-xs group-hover:scale-105 transition-transform">
                         <Camera className="w-3 h-3 text-[#f9a825]" />
                         <span>
                           {id === 'mining'
@@ -113,7 +113,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                         </span>
                       </div>
 
-                      <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
+                      <div className="absolute bottom-2 left-2.5 right-2.5 sm:left-3 sm:right-3 flex items-center justify-between text-white">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-[#f9a825]">
                           {id === 'mining'
                             ? 'Pôle 01'
@@ -127,12 +127,12 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                       </div>
                     </div>
 
-                    <div className="p-4 sm:p-5">
-                      <div className="flex items-center gap-2 mb-2">
+                    <div className="p-3.5 sm:p-5">
+                      <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                         <div className="p-1.5 bg-slate-50 rounded-[0.25rem] border border-slate-100 group-hover:bg-[#0f2c59]/5 transition-colors">
                           {getSectorIcon(id)}
                         </div>
-                        <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] group-hover:text-[#f9a825] transition-colors truncate">
+                        <h3 className="font-display font-bold text-sm sm:text-lg text-[#0f2c59] group-hover:text-[#f9a825] transition-colors truncate">
                           {sectorData.name}
                         </h3>
                       </div>
@@ -140,8 +140,8 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                     </div>
                   </div>
 
-                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
-                    <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59] group-hover:text-[#f9a825] transition-colors">
+                  <div className="px-3.5 pb-3.5 sm:px-5 sm:pb-5 pt-0">
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59] group-hover:text-[#f9a825] transition-colors">
                       <span>{currentLang === 'fr' ? 'Accéder à la page dédiée' : 'Open Dedicated Page'}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
                     </div>
@@ -154,31 +154,31 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
 
         {/* Main Sector Detailed Display Panel with ScrollReveal */}
         <ScrollReveal direction="up" delayMs={100}>
-          <div className="bg-white border border-[#e2e8f0] rounded-lg p-5 sm:p-8 lg:p-10 shadow-xs">
+          <div className="bg-white border border-[#e2e8f0] rounded-lg p-3.5 sm:p-8 lg:p-10 shadow-xs">
           {/* Header Bar of the Selected Sector */}
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-slate-100">
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem]">
+                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2 sm:px-2.5 py-0.5 rounded-[0.25rem]">
                   {currentSector.badge}
                 </span>
-                <span className="text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1">
+                <span className="text-[11px] sm:text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 sm:px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   {currentLang === 'fr' ? 'Opérations Vérifiées' : 'Verified Operations'}
                 </span>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold font-display text-[#0f2c59] mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-display text-[#0f2c59] mb-2 sm:mb-3">
                 {currentSector.name}
               </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
                 {currentSector.description}
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0 w-full sm:w-auto">
               <button
                 onClick={() => onOpenSectorPage(selectedSectorId)}
-                className="btn-gold px-4 sm:px-5 py-3 text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-xs whitespace-nowrap"
+                className="btn-gold w-full sm:w-auto px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-xs whitespace-nowrap"
               >
                 <span>{currentLang === 'fr' ? 'Ouvrir la page dédiée' : 'Open Dedicated Page'}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
 
               <button
                 onClick={() => onContactSector(currentSector.name)}
-                className="btn-outline-navy px-4 sm:px-5 py-3 text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer whitespace-nowrap"
+                className="btn-outline-navy w-full sm:w-auto px-3.5 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
               >
                 <span>
                   {currentLang === 'fr'
@@ -199,42 +199,42 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
           </div>
 
           {/* Prominent High-Resolution Realistic Sector Showcase Visual Banner */}
-          <div className="my-8">
+          <div className="my-5 sm:my-8">
             <div className="relative rounded-lg overflow-hidden border border-slate-200 shadow-sm group">
-              <div className="relative h-64 sm:h-80 md:h-[400px] w-full bg-slate-900 overflow-hidden">
+              <div className="relative h-44 sm:h-80 md:h-[400px] w-full bg-slate-900 overflow-hidden">
                 <img
                   src={currentSector.coverImage}
                   alt={currentSector.name}
                   className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/40 pointer-events-none" />
 
                 {/* Top Badge */}
-                <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                  <span className="bg-[#0f2c59]/90 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-[0.25rem] flex items-center gap-1.5 shadow-sm border border-white/20">
-                    <Camera className="w-3.5 h-3.5 text-[#f9a825]" />
+                <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-4 sm:left-4 sm:right-auto flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span className="bg-[#0f2c59]/90 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-[0.25rem] flex items-center gap-1.5 shadow-sm border border-white/20">
+                    <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f9a825]" />
                     {currentLang === 'fr'
-                      ? 'Photographie Réelle des Opérations'
-                      : 'Real Operational Photography'}
+                      ? 'Photographie Réelle'
+                      : 'Real Operational Photo'}
                   </span>
-                  <span className="bg-[#f9a825] text-[#0f2c59] text-xs font-bold px-2.5 py-1 rounded-[0.25rem] shadow-sm uppercase tracking-wider">
+                  <span className="bg-[#f9a825] text-[#0f2c59] text-[10px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-[0.25rem] shadow-sm uppercase tracking-wider">
                     {currentSector.badge}
                   </span>
                 </div>
 
                 {/* Bottom Caption Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
-                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-3 text-white">
                     <div>
-                      <div className="text-xs uppercase tracking-wider text-[#f9a825] font-semibold mb-1">
-                        {currentLang === 'fr' ? 'Activité de Terrain · Province du Copperbelt' : 'Field Activity · Copperbelt Province'}
+                      <div className="text-[10px] sm:text-xs uppercase tracking-wider text-[#f9a825] font-semibold mb-0.5 sm:mb-1">
+                        {currentLang === 'fr' ? 'Activité de Terrain · Copperbelt' : 'Field Activity · Copperbelt Province'}
                       </div>
-                      <p className="text-sm sm:text-base font-medium text-slate-100 max-w-2xl leading-snug">
+                      <p className="text-xs sm:text-base font-medium text-slate-100 max-w-2xl leading-snug line-clamp-2 sm:line-clamp-none">
                         {currentSector.coverImageCaption}
                       </p>
                     </div>
-                    <div className="shrink-0 flex items-center gap-2 text-xs font-mono text-slate-300 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded border border-white/10">
-                      <MapPin className="w-3.5 h-3.5 text-[#f9a825]" />
+                    <div className="shrink-0 w-fit flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono text-slate-300 bg-white/10 backdrop-blur-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded border border-white/10">
+                      <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f9a825]" />
                       <span>Kitwe & Ndola, Zambia</span>
                     </div>
                   </div>
@@ -244,13 +244,13 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
           </div>
 
           {/* 4 Sector Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-b border-slate-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 py-5 sm:py-8 border-b border-slate-100">
             {currentSector.stats.map((stat, idx) => (
-              <div key={idx} className="bg-[#f8fafc] border border-slate-100 rounded-md p-4">
-                <span className="text-[11px] uppercase tracking-wider text-slate-500 block mb-1">
+              <div key={idx} className="bg-[#f8fafc] border border-slate-100 rounded-md p-3 sm:p-4">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 block mb-0.5 sm:mb-1">
                   {stat.label}
                 </span>
-                <span className="text-xl sm:text-2xl font-bold font-display text-[#0f2c59] tabular-nums font-mono">
+                <span className="text-base sm:text-2xl font-bold font-display text-[#0f2c59] tabular-nums font-mono">
                   {stat.value}
                 </span>
               </div>
@@ -258,15 +258,15 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
           </div>
 
           {/* Key Technical Strengths */}
-          <div className="py-8 border-b border-slate-100">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f2c59] mb-4">
+          <div className="py-5 sm:py-8 border-b border-slate-100">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0f2c59] mb-3 sm:mb-4">
               {currentLang === 'fr' ? 'Avantages & Technologies Clés' : 'Key Technological Capabilities'}
             </h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-4">
               {currentSector.keyPoints.map((point, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 bg-slate-50/70 border border-slate-200/80 rounded-md p-4"
+                  className="flex items-start gap-2.5 sm:gap-3 bg-slate-50/70 border border-slate-200/80 rounded-md p-3 sm:p-4"
                 >
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
@@ -278,15 +278,15 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
           </div>
 
           {/* 3 Real-World Flagship Projects / Facilities */}
-          <div className="pt-8">
-            <div className="flex items-center justify-between mb-6">
-              <h4 className="text-sm font-bold font-display text-[#0f2c59] uppercase tracking-wider">
+          <div className="pt-5 sm:pt-8">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-4 sm:mb-6">
+              <h4 className="text-xs sm:text-sm font-bold font-display text-[#0f2c59] uppercase tracking-wider">
                 {currentSector.name} — {t.viewProjects}
               </h4>
-              <span className="text-xs text-slate-400 font-mono">3 Installations Actives</span>
+              <span className="text-[11px] sm:text-xs text-slate-400 font-mono">3 Installations Actives</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6">
               {currentSector.projects.map((proj, idx) => (
                 <div
                   key={idx}
@@ -294,7 +294,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                 >
                   <div>
                     {/* Facility Photo */}
-                    <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+                    <div className="relative h-36 sm:h-48 w-full bg-slate-200 overflow-hidden">
                       <img
                         src={proj.imageUrl}
                         alt={proj.name}
@@ -306,8 +306,8 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0f2c59]/80 via-transparent to-transparent pointer-events-none" />
 
-                      <div className="absolute top-3 left-3">
-                        <span className="text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2 py-0.5 rounded-[0.25rem] flex items-center gap-1 backdrop-blur-xs">
+                      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3">
+                        <span className="text-[10px] sm:text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2 py-0.5 rounded-[0.25rem] flex items-center gap-1 backdrop-blur-xs">
                           <MapPin className="w-3 h-3 text-[#f9a825]" />
                           {proj.location}
                         </span>
@@ -315,8 +315,8 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                     </div>
 
                     {/* Facility Details */}
-                    <div className="p-5">
-                      <h5 className="font-display font-bold text-base text-[#0f2c59] mb-2 group-hover:text-[#1e4d8c] transition-colors">
+                    <div className="p-3.5 sm:p-5">
+                      <h5 className="font-display font-bold text-sm sm:text-base text-[#0f2c59] mb-1.5 sm:mb-2 group-hover:text-[#1e4d8c] transition-colors">
                         {proj.name}
                       </h5>
                       <p className="text-xs text-slate-600 leading-relaxed">
@@ -325,7 +325,7 @@ export const SectorsShowcase: React.FC<SectorsShowcaseProps> = ({
                     </div>
                   </div>
 
-                  <div className="px-5 pb-5 pt-1">
+                  <div className="px-3.5 pb-3.5 sm:px-5 sm:pb-5 pt-1">
                     <button
                       onClick={() => onContactSector(`${currentSector.name} - ${proj.name}`)}
                       className="text-xs font-semibold text-[#0f2c59] group-hover:text-[#f9a825] flex items-center gap-1 transition-colors cursor-pointer"

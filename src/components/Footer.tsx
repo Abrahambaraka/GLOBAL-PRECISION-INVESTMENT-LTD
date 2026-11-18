@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({
   const nav = translations[currentLang].nav;
 
   return (
-    <footer className="bg-[#00173b] text-slate-300 pt-16 pb-10 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#00173b] text-slate-300 pt-10 sm:pt-16 pb-8 sm:pb-10 border-t border-white/10 relative overflow-hidden">
       {/* Background architectural pattern */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -33,12 +33,12 @@ export const Footer: React.FC<FooterProps> = ({
         }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 pb-8 sm:pb-12 border-b border-white/10">
           {/* Column 1: Brand Presentation (lg:col-span-4) */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg overflow-hidden border border-white/20 shrink-0 bg-white p-1 flex items-center justify-center shadow-md">
+          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden border border-white/20 shrink-0 bg-white p-1 flex items-center justify-center shadow-md">
                 <img
                   src="/assets/aistudio/gpi_2_ed004c56.png"
                   alt="Global Precision Investment"
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({
                 />
               </div>
               <div>
-                <span className="font-display text-base sm:text-lg font-bold tracking-tight text-white block">
+                <span className="font-display text-sm sm:text-lg font-bold tracking-tight text-white block leading-snug">
                   GLOBAL PRECISION INVESTMENT LTD
                 </span>
                 <span className="text-[10px] text-[#f9a825] font-semibold italic block">
@@ -111,13 +111,13 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Column 3: ZRA Taxpayer Registration & Compliance (plain writings without containers) */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-2.5 sm:space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-white block pb-1 border-b border-white/10">
               {currentLang === 'fr' ? 'Enregistrement Fiscal ZRA' : 'ZRA Tax Registration'}
             </span>
 
-            <div className="space-y-2 text-[11px] font-mono text-slate-300 leading-relaxed">
-              <div className="flex items-center justify-between gap-2">
+            <div className="space-y-1.5 sm:space-y-2 text-[11px] font-mono text-slate-300 leading-relaxed">
+              <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2">
                 <span className="font-bold uppercase tracking-wider text-[#f9a825]">
                   Zambia Revenue Authority
                 </span>
@@ -149,7 +149,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </div>
               </div>
 
-              <div className="pt-1 flex items-center justify-between text-[10px] text-slate-400 italic">
+              <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-[10px] text-slate-400 italic">
                 <span>« My Tax · Your Tax · Our Destiny »</span>
                 <span className="not-italic text-emerald-400">ZRA Verified</span>
               </div>
@@ -157,14 +157,14 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Column 4: Operational Coordinates & Physical Presence */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-2.5 sm:space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-[#f9a825] block pb-1 border-b border-white/10">
               {currentLang === 'fr' ? 'Sièges & Comptoirs Directs' : 'Headquarters & Operating Hubs'}
             </span>
 
             {/* Physical Addresses & Direct Communication */}
-            <div className="text-xs space-y-3 text-slate-300">
-              <div className="flex items-start gap-2.5">
+            <div className="text-xs space-y-2.5 sm:space-y-3 text-slate-300">
+              <div className="flex items-start gap-2 sm:gap-2.5">
                 <MapPin className="w-4 h-4 text-[#f9a825] shrink-0 mt-0.5" />
                 <div className="text-[11px] leading-snug">
                   <strong className="text-white block mb-0.5">
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-2 sm:gap-2.5">
                 <MapPin className="w-4 h-4 text-[#f9a825] shrink-0 mt-0.5" />
                 <div className="text-[11px] leading-snug">
                   <strong className="text-white block mb-0.5">
@@ -185,7 +185,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
 
               <div className="pt-2 border-t border-white/10 space-y-2">
-                <div className="flex items-center gap-2 font-mono text-[11px]">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px]">
                   <Phone className="w-3.5 h-3.5 text-[#f9a825] shrink-0" />
                   <a href="tel:+260960641318" className="hover:text-white transition-colors">
                     +260 960 641 318
@@ -198,7 +198,7 @@ export const Footer: React.FC<FooterProps> = ({
 
                 <div className="flex items-center gap-2 text-[11px]">
                   <Mail className="w-3.5 h-3.5 text-[#f9a825] shrink-0" />
-                  <a href="mailto:contact@globalprecisioninvest.com" className="hover:text-white truncate transition-colors">
+                  <a href="mailto:contact@globalprecisioninvest.com" className="hover:text-white break-all transition-colors">
                     contact@globalprecisioninvest.com
                   </a>
                 </div>
@@ -208,17 +208,17 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Bar: Copyright & Compliance */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-400">
           <div>
             &copy; {new Date().getFullYear()} GLOBAL PRECISION INVESTMENT LIMITED. {t.rights}
           </div>
-          <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] sm:text-[11px] font-mono text-slate-400">
             <span className="text-emerald-400 font-bold">✓ Entité Opérationnelle Enregistrée</span>
-            <span>·</span>
+            <span className="hidden sm:inline">·</span>
             <span className="text-white">PACRA LCO No. 120251029624</span>
-            <span>·</span>
+            <span className="hidden sm:inline">·</span>
             <span>ISIC 4690 Wholesale Trade</span>
-            <span>·</span>
+            <span className="hidden sm:inline">·</span>
             <span>Kitwe & Ndola, Zambia</span>
           </div>
         </div>

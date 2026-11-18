@@ -188,9 +188,9 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
   return (
     <div className="bg-[#f8f9ff] min-h-screen text-[#0d1c2e]">
       {/* Top Breadcrumb Navigation Bar */}
-      <div className="bg-white border-b border-slate-200 sticky top-16 sm:top-20 z-30 shadow-2xs">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-3 sm:py-3.5 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-xs text-slate-500 overflow-x-auto whitespace-nowrap py-0.5">
+      <div className="bg-white border-b border-slate-200 sticky top-14 sm:top-20 z-30 shadow-2xs">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-500 overflow-x-auto whitespace-nowrap py-0.5">
             <button
               onClick={onBackToHome}
               className="text-[#0f2c59] hover:underline font-bold flex items-center gap-1 cursor-pointer shrink-0"
@@ -199,18 +199,18 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
               <span>{currentLang === 'fr' ? 'Accueil' : 'Home'}</span>
             </button>
             <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <span className="text-slate-500 shrink-0">
+            <span className="text-slate-500 shrink-0 hidden sm:inline">
               {currentLang === 'fr' ? 'Secteurs d’Activité' : 'Business Sectors'}
             </span>
-            <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
-            <span className="font-semibold text-[#0f2c59] truncate max-w-[200px] sm:max-w-none">
+            <ChevronRight className="w-3 h-3 text-slate-400 shrink-0 hidden sm:inline" />
+            <span className="font-semibold text-[#0f2c59] truncate max-w-[140px] sm:max-w-none">
               {currentSector.name}
             </span>
           </div>
 
           <button
             onClick={onBackToHome}
-            className="btn-outline-navy px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shrink-0"
+            className="btn-outline-navy px-2.5 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shrink-0"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">{currentLang === 'fr' ? 'Retour au site' : 'Back to Home'}</span>
@@ -220,36 +220,36 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </div>
 
       {/* Main Sector Header & Panoramic Realistic Hero */}
-      <section className="bg-[#0f2c59] text-white pt-10 sm:pt-14 pb-12 sm:pb-16 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+      <section className="bg-[#0f2c59] text-white pt-7 sm:pt-14 pb-8 sm:pb-16 relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
           {/* Badges */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#f9a825] bg-white/10 px-3 py-1 rounded-[0.25rem] border border-white/15">
+          <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-4">
+            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#f9a825] bg-white/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-[0.25rem] border border-white/15">
               {currentSector.badge}
             </span>
-            <span className="text-xs font-medium text-emerald-300 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-[0.25rem] flex items-center gap-1.5">
+            <span className="text-[11px] sm:text-xs font-medium text-emerald-300 bg-emerald-950/60 border border-emerald-500/30 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-[0.25rem] flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span>{currentLang === 'fr' ? 'Opérations Actives & Certifiées' : 'Active & Certified Division'}</span>
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start mb-6 sm:mb-10">
             <div className="lg:col-span-8">
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-white mb-4 leading-tight">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-white mb-2.5 sm:mb-4 leading-tight">
                 {currentSector.name}
               </h1>
-              <p className="text-base sm:text-lg text-[#f9a825] font-medium mb-4">
+              <p className="text-sm sm:text-lg text-[#f9a825] font-medium mb-2.5 sm:mb-4">
                 {currentSector.tagline}
               </p>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+              <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-3xl">
                 {currentSector.description}
               </p>
             </div>
 
             {/* Direct Action Box */}
-            <div className="lg:col-span-4 bg-white/10 border border-white/20 rounded-lg p-5 sm:p-6 backdrop-blur-xs flex flex-col gap-4">
+            <div className="lg:col-span-4 bg-white/10 border border-white/20 rounded-lg p-4 sm:p-6 backdrop-blur-xs flex flex-col gap-3 sm:gap-4">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-[#f9a825] font-bold block mb-1">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#f9a825] font-bold block mb-1">
                   {currentLang === 'fr' ? 'Besoins opérationnels immédiats ?' : 'Immediate operational inquiry?'}
                 </span>
                 <p className="text-xs text-slate-200">
@@ -259,10 +259,10 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5">
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-2 sm:gap-2.5">
                 <button
                   onClick={() => onContactSector(currentSector.name)}
-                  className="btn-gold w-full py-3 px-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="btn-gold w-full py-2.5 sm:py-3 px-3.5 sm:px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   <span>{currentLang === 'fr' ? 'Demander un devis / catalogue' : 'Request Quotation / Catalogue'}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -274,7 +274,7 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 rounded-[0.25rem] bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                  className="w-full py-2.5 px-3.5 sm:px-4 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 rounded-[0.25rem] bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp : +260 960 641 318</span>
@@ -285,38 +285,38 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
 
           {/* Panoramic Realistic Image Showcase */}
           <div className="relative rounded-lg overflow-hidden border border-white/20 shadow-xl group">
-            <div className="relative h-64 sm:h-96 md:h-[460px] w-full bg-slate-900 overflow-hidden">
+            <div className="relative h-48 sm:h-96 md:h-[460px] w-full bg-slate-900 overflow-hidden">
               <img
                 src={currentSector.coverImage}
                 alt={currentSector.name}
                 className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/30 pointer-events-none" />
 
               {/* Top Verified Tag */}
-              <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                <span className="bg-[#0f2c59]/90 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-[0.25rem] flex items-center gap-1.5 shadow-sm border border-white/20">
-                  <Camera className="w-3.5 h-3.5 text-[#f9a825]" />
-                  <span>{currentLang === 'fr' ? 'Photographie Réelle du Secteur' : 'Real Sector Photography'}</span>
+              <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-4 sm:left-4 sm:right-auto flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="bg-[#0f2c59]/90 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-[0.25rem] flex items-center gap-1.5 shadow-sm border border-white/20">
+                  <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f9a825]" />
+                  <span>{currentLang === 'fr' ? 'Photographie Réelle' : 'Real Photography'}</span>
                 </span>
-                <span className="bg-[#f9a825] text-[#0f2c59] text-xs font-bold px-2.5 py-1 rounded-[0.25rem] shadow-sm uppercase tracking-wider">
+                <span className="bg-[#f9a825] text-[#0f2c59] text-[10px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-[0.25rem] shadow-sm uppercase tracking-wider">
                   Copperbelt Province
                 </span>
               </div>
 
               {/* Bottom Caption Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/95 via-black/75 to-transparent text-white">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 bg-gradient-to-t from-black/95 via-black/75 to-transparent text-white">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-3">
                   <div>
-                    <div className="text-xs uppercase tracking-wider text-[#f9a825] font-semibold mb-1">
+                    <div className="text-[10px] sm:text-xs uppercase tracking-wider text-[#f9a825] font-semibold mb-0.5 sm:mb-1">
                       {currentLang === 'fr' ? 'Infrastructures & Matériels de Terrain' : 'Field Infrastructure & Assets'}
                     </div>
-                    <p className="text-sm sm:text-base font-medium text-slate-100 max-w-2xl leading-snug">
+                    <p className="text-xs sm:text-base font-medium text-slate-100 max-w-2xl leading-snug line-clamp-2 sm:line-clamp-none">
                       {currentSector.coverImageCaption}
                     </p>
                   </div>
-                  <div className="shrink-0 flex items-center gap-2 text-xs font-mono text-slate-300 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded border border-white/10">
-                    <MapPin className="w-3.5 h-3.5 text-[#f9a825]" />
+                  <div className="shrink-0 w-fit flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono text-slate-300 bg-white/10 backdrop-blur-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded border border-white/10">
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f9a825]" />
                     <span>Kitwe & Ndola, Zambia</span>
                   </div>
                 </div>
@@ -327,15 +327,15 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* 4 Key Indicators Strip */}
-      <section className="py-8 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="py-5 sm:py-8 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
             {currentSector.stats.map((stat, idx) => (
-              <div key={idx} className="bg-[#f8fafc] border border-slate-200/80 rounded-lg p-4 sm:p-5">
-                <span className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold block mb-1">
+              <div key={idx} className="bg-[#f8fafc] border border-slate-200/80 rounded-lg p-3 sm:p-5">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 font-semibold block mb-0.5 sm:mb-1">
                   {stat.label}
                 </span>
-                <span className="text-lg sm:text-2xl font-bold font-display text-[#0f2c59] tabular-nums font-mono block">
+                <span className="text-base sm:text-2xl font-bold font-display text-[#0f2c59] tabular-nums font-mono block">
                   {stat.value}
                 </span>
               </div>
@@ -345,37 +345,37 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* Technical Strengths & Specifications */}
-      <section className="py-14 sm:py-16 bg-[#f8f9ff] border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
+      <section className="py-8 sm:py-16 bg-[#f8f9ff] border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="max-w-2xl mb-5 sm:mb-8">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
               {currentLang === 'fr' ? 'Normes & Capacités Techniques' : 'Technical Specifications & Standards'}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
               {currentLang === 'fr' ? 'Avantages Opérationnels & Engagements de Qualité' : 'Operational Strengths & Quality Standards'}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5">
             {currentSector.keyPoints.map((point, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-lg p-6 shadow-2xs hover:shadow-sm transition-shadow flex flex-col justify-between"
+                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-6 shadow-2xs hover:shadow-sm transition-shadow flex flex-col justify-between"
               >
-                <div className="flex items-start gap-3.5 mb-4">
-                  <div className="p-2 bg-emerald-50 rounded-[0.25rem] text-emerald-600 shrink-0">
-                    <CheckCircle2 className="w-5 h-5" />
+                <div className="flex items-start gap-3 mb-3 sm:mb-4">
+                  <div className="p-1.5 sm:p-2 bg-emerald-50 rounded-[0.25rem] text-emerald-600 shrink-0">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider block mb-1">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-slate-400 uppercase tracking-wider block mb-0.5 sm:mb-1">
                       Standard 0{idx + 1}
                     </span>
-                    <p className="text-sm text-slate-800 font-medium leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                       {point}
                     </p>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-mono flex items-center justify-between">
+                <div className="pt-2.5 sm:pt-3 border-t border-slate-100 text-[10px] sm:text-[11px] text-slate-500 font-mono flex items-center justify-between">
                   <span>Conformité PACRA & Zambie</span>
                   <span className="text-emerald-700 font-bold">✓ Validé</span>
                 </div>
@@ -386,14 +386,14 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* Equipment and Supply Lines Catalog */}
-      <section className="py-14 sm:py-16 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <section className="py-8 sm:py-16 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-4 mb-6 sm:mb-10">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
                 {currentLang === 'fr' ? 'Matériel & Produits' : 'Hardware & Supplies'}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
                 {catalog.title}
               </h2>
             </div>
@@ -402,20 +402,20 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6">
             {catalog.categories.map((cat, idx) => (
               <ScrollReveal key={idx} direction="up" delayMs={idx * 100}>
                 <div
-                  className="bg-[#f8fafc] border border-slate-200 rounded-lg p-6 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 card-hover-lift h-full"
+                  className="bg-[#f8fafc] border border-slate-200 rounded-lg p-4 sm:p-6 flex flex-col justify-between hover:border-slate-300 transition-all duration-300 card-hover-lift h-full"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-[0.25rem] bg-white border border-slate-200 flex items-center justify-center mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[0.25rem] bg-white border border-slate-200 flex items-center justify-center mb-3 sm:mb-4 shadow-2xs group-hover:scale-105 transition-transform">
                       {cat.icon}
                     </div>
-                    <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-4">
+                    <h3 className="font-display font-bold text-sm sm:text-lg text-[#0f2c59] mb-2.5 sm:mb-4">
                       {cat.name}
                     </h3>
-                    <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                    <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-700">
                       {cat.items.map((item, itemIdx) => (
                         <li key={itemIdx} className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#f9a825] shrink-0 mt-1.5" />
@@ -425,10 +425,10 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                     </ul>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-slate-200">
+                  <div className="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-slate-200">
                     <button
                       onClick={() => onContactSector(`${currentSector.name} - ${cat.name}`)}
-                      className="w-full py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-white border border-slate-200 rounded-[0.25rem] hover:bg-[#0f2c59] hover:text-white flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
+                      className="w-full py-2 sm:py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-white border border-slate-200 rounded-[0.25rem] hover:bg-[#0f2c59] hover:text-white flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
                     >
                       <span>{currentLang === 'fr' ? 'Demander disponibilité' : 'Check Availability'}</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#f9a825]" />
@@ -442,46 +442,46 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* Active Operational Facilities & Sites */}
-      <section className="py-14 sm:py-16 bg-[#f8f9ff] border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <section className="py-8 sm:py-16 bg-[#f8f9ff] border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-4 mb-6 sm:mb-10">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2.5 py-0.5 rounded-[0.25rem] mb-2 inline-block">
                 {currentLang === 'fr' ? 'Installations & Réseau' : 'Facilities & Sites'}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-bold font-display text-[#0f2c59] tracking-tight">
                 {currentLang === 'fr' ? 'Bases Opérationnelles & Hubs de Distribution' : 'Operational Hubs & Distribution Depots'}
               </h2>
             </div>
-            <span className="text-xs text-slate-500 font-mono">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-mono">
               Province du Copperbelt & Corridors Régionaux
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6">
             {currentSector.projects.map((proj, idx) => (
               <ScrollReveal key={idx} direction="up" delayMs={idx * 120}>
                 <div
                   className="bg-white border border-slate-200 rounded-lg overflow-hidden group card-hover-lift transition-all duration-300 flex flex-col justify-between h-full shadow-sm hover:shadow-xl"
                 >
                   <div>
-                    <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+                    <div className="relative h-36 sm:h-48 w-full bg-slate-200 overflow-hidden">
                       <img
                         src={proj.imageUrl}
                         alt={proj.name}
                         className="w-full h-full object-cover img-hover-zoom transition-transform duration-600"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none group-hover:opacity-80 transition-opacity" />
-                      <div className="absolute top-3 left-3">
-                        <span className="text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1.5 backdrop-blur-xs group-hover:scale-105 transition-transform">
+                      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3">
+                        <span className="text-[10px] sm:text-[11px] font-medium text-white bg-[#0f2c59]/90 px-2 sm:px-2.5 py-0.5 rounded-[0.25rem] flex items-center gap-1.5 backdrop-blur-xs group-hover:scale-105 transition-transform">
                           <MapPin className="w-3 h-3 text-[#f9a825]" />
                           {proj.location}
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-5">
-                      <h3 className="font-display font-bold text-base sm:text-lg text-[#0f2c59] mb-2 group-hover:text-[#1e4d8c] transition-colors">
+                    <div className="p-3.5 sm:p-5">
+                      <h3 className="font-display font-bold text-sm sm:text-lg text-[#0f2c59] mb-1.5 sm:mb-2 group-hover:text-[#1e4d8c] transition-colors">
                         {proj.name}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -490,10 +490,10 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                     </div>
                   </div>
 
-                  <div className="px-5 pb-5 pt-1">
+                  <div className="px-3.5 pb-3.5 sm:px-5 sm:pb-5 pt-1">
                     <button
                       onClick={() => onContactSector(`${currentSector.name} - ${proj.name}`)}
-                      className="w-full py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-slate-50 hover:bg-[#0f2c59] hover:text-white rounded-[0.25rem] border border-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
+                      className="w-full py-2 sm:py-2.5 px-3 text-xs font-semibold text-[#0f2c59] bg-slate-50 hover:bg-[#0f2c59] hover:text-white rounded-[0.25rem] border border-slate-200 flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-98"
                     >
                       <span>{currentLang === 'fr' ? 'Consulter ce pôle' : 'Inquire on this Facility'}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -507,51 +507,51 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* Sector Direct Contact Card */}
-      <section className="py-14 sm:py-16 bg-white border-b border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="bg-[#0f2c59] text-white rounded-xl p-6 sm:p-10 lg:p-12 relative overflow-hidden">
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <section className="py-8 sm:py-16 bg-white border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="bg-[#0f2c59] text-white rounded-lg sm:rounded-xl p-4 sm:p-10 lg:p-12 relative overflow-hidden">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center">
               <div className="lg:col-span-8">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#f9a825] block mb-2">
+                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#f9a825] block mb-1.5 sm:mb-2">
                   {currentLang === 'fr' ? 'Collaboration & Partenariat' : 'Partnership & Supply Mandates'}
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-white mb-3 tracking-tight">
+                <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold font-display text-white mb-2.5 sm:mb-3 tracking-tight">
                   {currentLang === 'fr'
                     ? `Collaborer avec le pôle ${currentSector.name}`
                     : `Partner with ${currentSector.name}`}
                 </h2>
-                <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed mb-6">
+                <p className="text-xs sm:text-base text-slate-300 max-w-2xl leading-relaxed mb-4 sm:mb-6">
                   {currentLang === 'fr'
                     ? 'Transmettez vos besoins d’approvisionnement, bons de commande ou demandes de consultation. Nos équipes de Kitwe et Ndola vous répondent avec réactivité.'
                     : 'Submit your procurement requests, bulk orders, or technical queries. Our Kitwe and Ndola operations teams will assist promptly.'}
                 </p>
 
                 {/* Direct Contacts Row */}
-                <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs font-mono">
                   <a
                     href="tel:+260960641318"
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-2 rounded-[0.25rem] text-white transition-colors"
+                    className="flex items-center gap-1.5 sm:gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-[0.25rem] text-white transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#f9a825]" />
                     <span>+260 960 641 318</span>
                   </a>
                   <a
                     href="tel:+260766557185"
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-2 rounded-[0.25rem] text-white transition-colors"
+                    className="flex items-center gap-1.5 sm:gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-[0.25rem] text-white transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#f9a825]" />
                     <span>+260 766 557 185</span>
                   </a>
-                  <span className="text-slate-300">
+                  <span className="text-slate-300 break-all">
                     contact@globalprecisioninvest.com
                   </span>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col gap-3">
+              <div className="lg:col-span-4 flex flex-col gap-2.5 sm:gap-3">
                 <button
                   onClick={() => onContactSector(currentSector.name)}
-                  className="btn-gold w-full py-3.5 px-5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                  className="btn-gold w-full py-3 px-4 sm:px-5 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                 >
                   <span>{currentLang === 'fr' ? 'Formulaire de demande' : 'Submit Direct Inquiry'}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -563,7 +563,7 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3 px-5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 rounded-[0.25rem] bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                  className="w-full py-2.5 sm:py-3 px-4 sm:px-5 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 rounded-[0.25rem] bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>{currentLang === 'fr' ? 'Échanger sur WhatsApp' : 'Chat on WhatsApp'}</span>
@@ -575,10 +575,10 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
       </section>
 
       {/* Switcher to Other Sectors */}
-      <section className="py-12 sm:py-16 bg-[#f8f9ff]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0f2c59]">
+      <section className="py-8 sm:py-16 bg-[#f8f9ff]">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-5 sm:mb-8">
+            <h2 className="text-lg sm:text-2xl font-bold font-display text-[#0f2c59]">
               {currentLang === 'fr' ? 'Explorer les autres secteurs' : 'Explore other divisions'}
             </h2>
             <button
@@ -590,7 +590,7 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6">
             {otherSectorIds.map((id) => {
               const other = sectors[id];
               return (
@@ -599,7 +599,7 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                   onClick={() => onSelectSector(id)}
                   className="bg-white border border-slate-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-all group flex flex-col sm:flex-row"
                 >
-                  <div className="sm:w-48 h-36 sm:h-auto shrink-0 relative overflow-hidden bg-slate-200">
+                  <div className="sm:w-48 h-28 sm:h-auto shrink-0 relative overflow-hidden bg-slate-200">
                     <img
                       src={other.coverImage}
                       alt={other.name}
@@ -611,12 +611,12 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                     </div>
                   </div>
 
-                  <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
                     <div>
                       <span className="text-[10px] font-mono uppercase tracking-wider text-[#0f2c59] bg-slate-100 px-2 py-0.5 rounded block w-fit mb-1.5">
                         {other.badge}
                       </span>
-                      <h3 className="font-display font-bold text-base text-[#0f2c59] group-hover:text-[#f9a825] transition-colors mb-1">
+                      <h3 className="font-display font-bold text-sm sm:text-base text-[#0f2c59] group-hover:text-[#f9a825] transition-colors mb-1">
                         {other.name}
                       </h3>
                       <p className="text-xs text-slate-500 line-clamp-2">
@@ -624,7 +624,7 @@ export const SectorDetailPage: React.FC<SectorDetailPageProps> = ({
                       </p>
                     </div>
 
-                    <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59]">
+                    <div className="pt-2.5 mt-2.5 sm:pt-3 sm:mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0f2c59]">
                       <span>{currentLang === 'fr' ? 'Accéder à la page' : 'Open Page'}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#f9a825]" />
                     </div>

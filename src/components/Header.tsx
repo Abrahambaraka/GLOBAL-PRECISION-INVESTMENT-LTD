@@ -48,14 +48,14 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 bg-white shadow-xs">
       {/* Main Navbar */}
       <div className="border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12 h-14 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
           {/* Logo & Brand Wordmark */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0 flex-1 sm:flex-initial">
             <button
               onClick={() => handlePageClick('home')}
               className="flex items-center gap-2 sm:gap-3 text-left group cursor-pointer focus:outline-hidden min-w-0"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden border border-slate-200 shadow-2xs shrink-0 bg-white p-0.5 flex items-center justify-center">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-md sm:rounded-lg overflow-hidden border border-slate-200 shadow-2xs shrink-0 bg-white p-0.5 flex items-center justify-center">
                 <img
                   src="/assets/aistudio/gpi_2_ed004c56.png"
                   alt="Global Precision Investment"
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               </div>
               <div className="min-w-0">
-                <span className="font-display text-xs sm:text-base lg:text-xl font-bold tracking-tight text-[#0f2c59] whitespace-nowrap block truncate max-w-[170px] xs:max-w-[240px] sm:max-w-none">
+                <span className="font-display text-[11px] sm:text-base lg:text-xl font-bold tracking-tight text-[#0f2c59] whitespace-nowrap block truncate max-w-[155px] sm:max-w-none">
                   GLOBAL PRECISION INVESTMENT LTD
                 </span>
                 <span className="hidden sm:block text-[10px] text-slate-500 font-medium italic -mt-0.5 truncate">
@@ -230,21 +230,21 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-10 h-10 rounded-lg border border-slate-200 bg-white flex flex-col items-center justify-center gap-1.5 text-slate-700 hover:text-[#0f2c59] hover:bg-slate-50 transition-all cursor-pointer focus:outline-hidden"
+              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-md sm:rounded-lg border border-slate-200 bg-white flex flex-col items-center justify-center gap-1.5 text-slate-700 hover:text-[#0f2c59] hover:bg-slate-50 transition-all cursor-pointer focus:outline-hidden"
               aria-label="Toggle navigation menu"
             >
               <span
-                className={`w-5 h-0.5 bg-[#0f2c59] rounded-full transition-all duration-300 ${
+                className={`w-4 sm:w-5 h-0.5 bg-[#0f2c59] rounded-full transition-all duration-300 ${
                   mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
                 }`}
               />
               <span
-                className={`w-5 h-0.5 bg-[#0f2c59] rounded-full transition-opacity duration-200 ${
+                className={`w-4 sm:w-5 h-0.5 bg-[#0f2c59] rounded-full transition-opacity duration-200 ${
                   mobileMenuOpen ? 'opacity-0' : 'opacity-100'
                 }`}
               />
               <span
-                className={`w-5 h-0.5 bg-[#0f2c59] rounded-full transition-all duration-300 ${
+                className={`w-4 sm:w-5 h-0.5 bg-[#0f2c59] rounded-full transition-all duration-300 ${
                   mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
                 }`}
               />
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Slide-Down Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-4 pb-6 space-y-4 shadow-xl animate-in slide-in-from-top duration-200 max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-3 pt-3 pb-5 space-y-3 shadow-xl animate-in slide-in-from-top duration-200 max-h-[calc(100vh-3.5rem)] overflow-y-auto">
           {/* Main Pages */}
           <div className="space-y-1 pb-3 border-b border-slate-100 text-sm">
             <button

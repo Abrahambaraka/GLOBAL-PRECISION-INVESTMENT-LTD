@@ -98,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const currentPhrase = headlineModes[currentLang][activeModeIndex];
 
   return (
-    <section id="home" className="bg-[#0f2c59] text-white pt-12 sm:pt-16 pb-16 sm:pb-20 relative overflow-hidden border-b border-[#1e4d8c]/40">
+    <section id="home" className="bg-[#0f2c59] text-white pt-7 sm:pt-16 pb-10 sm:pb-20 relative overflow-hidden border-b border-[#1e4d8c]/40">
       {/* Background architectural pattern */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -108,17 +108,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-12 relative z-10">
         {/* Fixed, Stable Headline (No auto-scrolling) */}
-        <div className="max-w-4xl mb-6 pt-2">
+        <div className="max-w-4xl mb-5 sm:mb-6 pt-1 sm:pt-2">
           {/* Discrete manual tabs for user control without any auto-rotation */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
             {headlineModes[currentLang].map((mode, idx) => (
               <button
                 key={mode.id}
                 type="button"
                 onClick={() => setActiveModeIndex(idx)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold cursor-pointer transition-all ${
+                className={`px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold cursor-pointer transition-all ${
                   activeModeIndex === idx
                     ? 'bg-[#f9a825] text-[#0f2c59] shadow-sm font-bold scale-102'
                     : 'bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/10'
@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             ))}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold font-display leading-[1.14] tracking-tight text-white mb-4">
+          <h1 className="text-2xl sm:text-5xl lg:text-[54px] font-bold font-display leading-[1.18] sm:leading-[1.14] tracking-tight text-white mb-3 sm:mb-4">
             {currentLang === 'fr' ? (
               <>
                 L’Excellence Industrielle au service de{' '}
@@ -150,44 +150,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           {/* Static subtitle badge */}
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-200 bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-full mb-4 shadow-2xs backdrop-blur-xs">
-            <span className="text-sm">{currentPhrase.icon}</span>
+          <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm text-slate-200 bg-white/10 border border-white/15 px-3 sm:px-3.5 py-1.5 rounded-lg sm:rounded-full mb-3 sm:mb-4 shadow-2xs backdrop-blur-xs leading-snug">
+            <span className="text-xs sm:text-sm">{currentPhrase.icon}</span>
             <span className="font-semibold text-[#f9a825]">{currentPhrase.badge} :</span>
             <span className="text-slate-200">{currentPhrase.sub}</span>
           </div>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl">
             {t.subtitle}
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap items-center gap-4 mb-12">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-8 sm:mb-12">
           <button
             onClick={() => onExploreSectors()}
-            className="btn-gold px-6 py-3.5 text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md"
+            className="btn-gold px-4 sm:px-6 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md"
           >
             <span>{t.exploreBtn}</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
           <button
             onClick={onContactClick}
-            className="btn-outline-navy !text-white !border-white/30 hover:!bg-white/10 px-6 py-3.5 text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+            className="btn-outline-navy !text-white !border-white/30 hover:!bg-white/10 px-4 sm:px-6 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
           >
             <span>{t.contactBtn}</span>
-            <ArrowUpRight className="w-4 h-4 text-[#f9a825]" />
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f9a825]" />
           </button>
         </div>
 
         {/* 3 Sector Fast-Access Cards with Realistic Photos & Micro-interactions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 mb-8 sm:mb-12">
           {/* Sector 1: Mine */}
           <ScrollReveal delayMs={80} direction="up">
             <div
               onClick={() => onExploreSectors('mining')}
               className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#f9a825]/60 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer group border-t-[4px] border-t-[#f9a825] flex flex-col justify-between card-hover-lift shadow-md hover:shadow-2xl"
             >
-              <div className="relative h-36 w-full overflow-hidden bg-slate-800">
+              <div className="relative h-28 sm:h-36 w-full overflow-hidden bg-slate-800">
                 <img
                   src="/assets/images/copperbelt_mining_operations_1794206552344.jpg"
                   alt="Mines & Métaux Stratégiques"
@@ -201,18 +201,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   01 · Copperbelt
                 </span>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-lg text-white mb-1.5 group-hover:text-[#f9a825] transition-colors">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-white mb-1 group-hover:text-[#f9a825] transition-colors">
                     {currentLang === 'fr' ? 'Mines & Métaux Stratégiques' : 'Modern Mining & Critical Metals'}
                   </h3>
-                  <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-2 leading-relaxed">
                     {currentLang === 'fr'
                       ? 'Équipements lourds, pièces de rechange et logistique d’extraction pour le cuivre et le cobalt.'
                       : 'Heavy machinery, spare parts, and extraction logistics for Copperbelt copper and cobalt.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center justify-between text-xs text-[#f9a825] font-semibold pt-2 border-t border-white/10">
+                <div className="mt-3 sm:mt-4 flex items-center justify-between text-[11px] sm:text-xs text-[#f9a825] font-semibold pt-2 border-t border-white/10">
                   <span>{currentLang === 'fr' ? 'Accéder à la page Mines' : 'Open Mining Page'}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200" />
                 </div>
@@ -226,7 +226,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               onClick={() => onExploreSectors('agriculture')}
               className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-emerald-400/60 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer group border-t-[4px] border-t-[#10b981] flex flex-col justify-between card-hover-lift shadow-md hover:shadow-2xl"
             >
-              <div className="relative h-36 w-full overflow-hidden bg-slate-800">
+              <div className="relative h-28 sm:h-36 w-full overflow-hidden bg-slate-800">
                 <img
                   src="/assets/images/sustainable_agriculture_mechanization_1794206552875.jpg"
                   alt="Agriculture Durable"
@@ -240,18 +240,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   02 · Agro-Supply
                 </span>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-lg text-white mb-1.5 group-hover:text-emerald-400 transition-colors">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-white mb-1 group-hover:text-emerald-400 transition-colors">
                     {currentLang === 'fr' ? 'Agriculture Durable & Mécanisation' : 'Sustainable Agriculture & Yield'}
                   </h3>
-                  <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-2 leading-relaxed">
                     {currentLang === 'fr'
                       ? 'Tracteurs, semences sélectionnées, pompage solaire et silos étanches de préservation.'
                       : 'Tractors, certified inputs, solar-powered drip irrigation, and hermetic crop storage.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center justify-between text-xs text-emerald-400 font-semibold pt-2 border-t border-white/10">
+                <div className="mt-3 sm:mt-4 flex items-center justify-between text-[11px] sm:text-xs text-emerald-400 font-semibold pt-2 border-t border-white/10">
                   <span>{currentLang === 'fr' ? 'Accéder à la page Agriculture' : 'Open Agriculture Page'}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200" />
                 </div>
@@ -265,7 +265,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               onClick={() => onExploreSectors('supply')}
               className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#6c95d8]/60 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer group border-t-[4px] border-t-[#6c95d8] flex flex-col justify-between card-hover-lift shadow-md hover:shadow-2xl"
             >
-              <div className="relative h-36 w-full overflow-hidden bg-slate-800">
+              <div className="relative h-28 sm:h-36 w-full overflow-hidden bg-slate-800">
                 <img
                   src="/assets/images/industrial_supply_warehouse_1794206554120.jpg"
                   alt="Fourniture Industrielle & Commerce de Gros"
@@ -279,18 +279,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   03 · ISIC 4690
                 </span>
               </div>
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display font-bold text-lg text-white mb-1.5 group-hover:text-[#6c95d8] transition-colors">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-white mb-1 group-hover:text-[#6c95d8] transition-colors">
                     {currentLang === 'fr' ? 'Fourniture Industrielle & Gros' : 'Industrial Supply & Wholesale'}
                   </h3>
-                  <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-2 leading-relaxed">
                     {currentLang === 'fr'
                       ? 'Commerce de gros, pièces de véhicules automobiles, quincaillerie d’usine et outillage.'
                       : 'Non-specialized wholesale trade, motor vehicle spares, factory tooling & bearings.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center justify-between text-xs text-[#6c95d8] font-semibold pt-2 border-t border-white/10">
+                <div className="mt-3 sm:mt-4 flex items-center justify-between text-[11px] sm:text-xs text-[#6c95d8] font-semibold pt-2 border-t border-white/10">
                   <span>{currentLang === 'fr' ? 'Accéder à la page Fourniture' : 'Open Supply Page'}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200" />
                 </div>
@@ -301,45 +301,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* 4 Bottom KPI Rollups with Progressive Reveal */}
         <ScrollReveal delayMs={120} direction="up">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-white/10">
-            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-4 rounded-md transition-all duration-300 hover:bg-white/10">
-              <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 pt-6 sm:pt-8 border-t border-white/10">
+            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-3 sm:p-4 rounded-md transition-all duration-300 hover:bg-white/10">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-400 block mb-0.5 sm:mb-1">
                 {t.kpis.aum.label}
               </span>
-              <div className="text-2xl sm:text-3xl font-bold font-display text-white tabular-nums">
+              <div className="text-lg sm:text-3xl font-bold font-display text-white tabular-nums">
                 {t.kpis.aum.value}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1">{t.kpis.aum.desc}</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 sm:mt-1">{t.kpis.aum.desc}</div>
             </div>
 
-            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-4 rounded-md transition-all duration-300 hover:bg-white/10">
-              <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-3 sm:p-4 rounded-md transition-all duration-300 hover:bg-white/10">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-400 block mb-0.5 sm:mb-1">
                 {t.kpis.countries.label}
               </span>
-              <div className="text-2xl sm:text-3xl font-bold font-display text-white tabular-nums">
+              <div className="text-lg sm:text-3xl font-bold font-display text-white tabular-nums">
                 {t.kpis.countries.value}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1">{t.kpis.countries.desc}</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 sm:mt-1">{t.kpis.countries.desc}</div>
             </div>
 
-            <div className="bg-white/5 border border-white/10 hover:border-[#f9a825]/40 p-4 rounded-md transition-all duration-300 hover:bg-white/10">
-              <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+            <div className="bg-white/5 border border-white/10 hover:border-[#f9a825]/40 p-3 sm:p-4 rounded-md transition-all duration-300 hover:bg-white/10">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-400 block mb-0.5 sm:mb-1">
                 {t.kpis.yield.label}
               </span>
-              <div className="text-2xl sm:text-3xl font-bold font-display text-[#f9a825] tabular-nums">
+              <div className="text-lg sm:text-3xl font-bold font-display text-[#f9a825] tabular-nums">
                 {t.kpis.yield.value}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1">{t.kpis.yield.desc}</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 sm:mt-1">{t.kpis.yield.desc}</div>
             </div>
 
-            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-4 rounded-md transition-all duration-300 hover:bg-white/10">
-              <span className="text-[11px] uppercase tracking-wider text-slate-400 block mb-1">
+            <div className="bg-white/5 border border-white/10 hover:border-white/20 p-3 sm:p-4 rounded-md transition-all duration-300 hover:bg-white/10">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-400 block mb-0.5 sm:mb-1">
                 {t.kpis.reliability.label}
               </span>
-              <div className="text-2xl sm:text-3xl font-bold font-display text-white tabular-nums">
+              <div className="text-lg sm:text-3xl font-bold font-display text-white tabular-nums">
                 {t.kpis.reliability.value}
               </div>
-              <div className="text-[11px] text-slate-400 mt-1">{t.kpis.reliability.desc}</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 sm:mt-1">{t.kpis.reliability.desc}</div>
             </div>
           </div>
         </ScrollReveal>
