@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Language, translations } from '../i18n/translations';
 import { ScrollReveal } from './ScrollReveal';
+import { CeoMessageSection } from './CeoMessageSection';
 
 interface AboutSectionProps {
   currentLang: Language;
@@ -18,6 +19,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang, onExplo
   return (
     <section id="about" className="py-20 bg-white border-b border-slate-200">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        {/* CEO Gracia SALANGA Feature Block (Modeled after reference layout) */}
+        <div className="mb-16">
+          <CeoMessageSection currentLang={currentLang} />
+        </div>
+
         {/* Header Block with Slogan */}
         <ScrollReveal direction="up" delayMs={50}>
           <div className="max-w-4xl mb-14">

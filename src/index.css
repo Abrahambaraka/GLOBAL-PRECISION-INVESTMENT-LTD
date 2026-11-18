@@ -71,14 +71,16 @@
   color: #0f2c59;
   font-weight: 700;
   border-radius: 0.25rem;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, box-shadow 200ms ease;
 }
 .btn-gold:hover {
   background-color: #fbc02d;
-  box-shadow: 0 2px 8px rgba(249, 168, 37, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -4px rgba(249, 168, 37, 0.45);
 }
 .btn-gold:active {
   background-color: #f57f17;
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-navy {
@@ -86,10 +88,12 @@
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.25rem;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, box-shadow 200ms ease;
 }
 .btn-navy:hover {
   background-color: #1e4d8c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -4px rgba(15, 44, 89, 0.35);
 }
 
 .btn-outline-navy {
@@ -98,10 +102,11 @@
   color: #0f2c59;
   font-weight: 600;
   border-radius: 0.25rem;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, border-color 200ms ease;
 }
 .btn-outline-navy:hover {
-  background-color: rgba(15, 44, 89, 0.05);
+  background-color: rgba(15, 44, 89, 0.06);
+  transform: translateY(-1px);
 }
 
 .btn-ghost {

@@ -67,9 +67,10 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
       style={{
         transitionDuration: `${durationMs}ms`,
         transitionDelay: `${delayMs}ms`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
         transform: getTransformStyle(),
       }}
-      className={`transition-all cubic-bezier(0.16, 1, 0.3, 1) will-change-[transform,opacity] ${
+      className={`transition-all will-change-[transform,opacity] ${
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${className}`}
     >

@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import {
   ArrowUpRight,
-  Menu,
-  X,
   ChevronDown,
   Pickaxe,
   Sprout,
   Ship,
   Phone,
-  Mail,
-  MapPin,
-  ShieldCheck,
   MessageCircle,
 } from 'lucide-react';
 import { Language, translations } from '../i18n/translations';
@@ -51,62 +46,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-xs">
-      {/* Top Utility Bar modeled after godafdrc.com */}
-      <div className="bg-[#00173b] text-slate-300 text-xs py-2 px-4 sm:px-6 lg:px-12 border-b border-white/10 hidden md:block">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-          {/* Left contact info */}
-          <div className="flex items-center gap-6 text-[11px] font-mono">
-            <div className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-[#f9a825]" />
-              <a href="tel:+260960641318" className="hover:text-white transition-colors">
-                +260 960 641 318
-              </a>
-              <span className="text-slate-500">/</span>
-              <a href="tel:+260766557185" className="hover:text-white transition-colors">
-                +260 766 557 185
-              </a>
-            </div>
-
-            <div className="hidden lg:flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-[#f9a825]" />
-              <a href="mailto:contact@globalprecisioninvest.com" className="hover:text-white transition-colors">
-                contact@globalprecisioninvest.com
-              </a>
-            </div>
-
-            <div className="hidden xl:flex items-center gap-1.5 text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-[#f9a825]" />
-              <span>Plot 4017 Euclid Rd, Kitwe & Ndola, Zambia</span>
-            </div>
-          </div>
-
-          {/* Right Language Switcher */}
-          <div className="flex items-center gap-4">
-            {/* Language Switcher */}
-            <div className="flex items-center bg-white/10 p-0.5 rounded border border-white/10 text-[11px]">
-              <button
-                type="button"
-                onClick={() => onLanguageChange('fr')}
-                className={`px-2 py-0.5 font-bold rounded transition-colors cursor-pointer ${
-                  currentLang === 'fr' ? 'bg-[#f9a825] text-[#0f2c59]' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                FR
-              </button>
-              <button
-                type="button"
-                onClick={() => onLanguageChange('en')}
-                className={`px-2 py-0.5 font-bold rounded transition-colors cursor-pointer ${
-                  currentLang === 'en' ? 'bg-[#f9a825] text-[#0f2c59]' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <div className="border-b border-slate-200 bg-white/95 backdrop-blur-md">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
@@ -256,13 +195,13 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Action Button & Mobile Burger */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Mobile Language switch */}
-            <div className="flex md:hidden items-center bg-slate-100 p-0.5 rounded border border-slate-200 text-xs">
+            {/* Language switcher (Desktop & Mobile) */}
+            <div className="flex items-center bg-slate-100 p-0.5 rounded border border-slate-200 text-xs">
               <button
                 type="button"
                 onClick={() => onLanguageChange('fr')}
-                className={`px-2 py-0.5 font-bold rounded ${
-                  currentLang === 'fr' ? 'bg-[#0f2c59] text-white' : 'text-slate-600'
+                className={`px-2 py-0.5 font-bold rounded cursor-pointer transition-colors ${
+                  currentLang === 'fr' ? 'bg-[#0f2c59] text-white' : 'text-slate-600 hover:text-[#0f2c59]'
                 }`}
               >
                 FR
@@ -270,8 +209,8 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 type="button"
                 onClick={() => onLanguageChange('en')}
-                className={`px-2 py-0.5 font-bold rounded ${
-                  currentLang === 'en' ? 'bg-[#0f2c59] text-white' : 'text-slate-600'
+                className={`px-2 py-0.5 font-bold rounded cursor-pointer transition-colors ${
+                  currentLang === 'en' ? 'bg-[#0f2c59] text-white' : 'text-slate-600 hover:text-[#0f2c59]'
                 }`}
               >
                 EN

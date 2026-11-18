@@ -3,11 +3,8 @@ import {
   Phone,
   Mail,
   MapPin,
-  ShieldCheck,
   MessageCircle,
-  FileText,
   ArrowRight,
-  ExternalLink,
 } from 'lucide-react';
 import { Language, translations } from '../i18n/translations';
 
@@ -113,59 +110,48 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Column 3: ZRA Taxpayer Registration & Compliance (from official certificate) */}
+          {/* Column 3: ZRA Taxpayer Registration & Compliance (plain writings without containers) */}
           <div className="lg:col-span-3 space-y-3">
-            <div className="flex items-center gap-1.5 pb-1 border-b border-white/10">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-bold uppercase tracking-wider text-white">
-                {currentLang === 'fr' ? 'Enregistrement Fiscal ZRA' : 'ZRA Tax Registration'}
-              </span>
-            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-white block pb-1 border-b border-white/10">
+              {currentLang === 'fr' ? 'Enregistrement Fiscal ZRA' : 'ZRA Tax Registration'}
+            </span>
 
-            <div className="bg-white/5 border border-white/10 rounded-lg p-3.5 space-y-2.5 text-xs card-hover-lift">
-              <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#f9a825]">
+            <div className="space-y-2 text-[11px] font-mono text-slate-300 leading-relaxed">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-bold uppercase tracking-wider text-[#f9a825]">
                   Zambia Revenue Authority
                 </span>
-                <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                <span className="text-emerald-400 font-bold text-[10px]">
                   ACTIVE & COMPLIANT
                 </span>
               </div>
 
-              <div className="space-y-1.5 text-[11px] font-mono">
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">TPIN :</span>
-                  <span className="font-bold text-[#f9a825] bg-black/40 px-2 py-0.5 rounded border border-white/10">
-                    2003677721
-                  </span>
+              <div className="space-y-1">
+                <div>
+                  <span className="text-slate-400">TPIN : </span>
+                  <span className="font-bold text-[#f9a825]">2003677721</span>
                 </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Identity / NRC :</span>
+                <div>
+                  <span className="text-slate-400">Identity / NRC : </span>
                   <span className="font-bold text-slate-200">120261020624</span>
                 </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Taxpayer Name :</span>
-                  <span className="font-semibold text-slate-200 text-right truncate max-w-[150px]">
-                    GLOBAL PRECISION INVESTMENT LTD
-                  </span>
+                <div>
+                  <span className="text-slate-400">Taxpayer Name : </span>
+                  <span className="font-semibold text-slate-200">GLOBAL PRECISION INVESTMENT LTD</span>
                 </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Jurisdiction :</span>
-                  <span className="text-slate-300">ISHTO - Copperbelt</span>
+                <div>
+                  <span className="text-slate-400">Jurisdiction : </span>
+                  <span className="text-slate-200">ISHTO - Copperbelt</span>
                 </div>
-
-                <div className="pt-1.5 border-t border-white/10 flex justify-between items-center text-[10px]">
-                  <span className="text-slate-400">Turnover Tax :</span>
-                  <span className="text-emerald-400 font-bold">Effective 30 Jul 2025</span>
+                <div>
+                  <span className="text-slate-400">Turnover Tax : </span>
+                  <span className="text-emerald-400 font-semibold">Effective 30 Jul 2025</span>
                 </div>
               </div>
 
-              <div className="pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400 italic">
+              <div className="pt-1 flex items-center justify-between text-[10px] text-slate-400 italic">
                 <span>« My Tax · Your Tax · Our Destiny »</span>
-                <span className="font-mono not-italic text-emerald-400 text-[9px]">ZRA Verified</span>
+                <span className="not-italic text-emerald-400">ZRA Verified</span>
               </div>
             </div>
           </div>

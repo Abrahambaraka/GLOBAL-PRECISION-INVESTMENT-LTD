@@ -3,7 +3,6 @@ import {
   ArrowLeft,
   ArrowRight,
   ShieldCheck,
-  CheckCircle2,
   Award,
   FileText,
   MapPin,
@@ -17,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Language, translations } from '../i18n/translations';
 import { ScrollReveal } from './ScrollReveal';
+import { CeoMessageSection } from './CeoMessageSection';
 
 interface AboutPageProps {
   currentLang: Language;
@@ -223,6 +223,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Executive Leadership Section: CEO Gracia SALANGA */}
+      <section className="py-14 sm:py-18 bg-[#f8fafc] border-b border-slate-200">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+          <CeoMessageSection currentLang={currentLang} />
         </div>
       </section>
 
